@@ -14,8 +14,8 @@
  
   - name: Ensure in DockerHub is login
     community.docker.docker_login:
-      username: {{DockerHub_user}}
-      password: {{DockerHub_pass}}
+      username: {{ DockerHub_user }}
+      password: {{ DockerHub_pass }}
 
   - name: Ensure Docker image is build
     community.docker.docker_image:
@@ -45,4 +45,3 @@
       state: started
       ports:
         - "8080:8080"
-        
