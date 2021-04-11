@@ -7,9 +7,10 @@
 
   tasks:
     - name: Ensure git is install
-      apt: git
-      state: present 
-      
+      apt: 
+        name: git
+        state: present 
+
     - name: Ensure Github-repo is clone  
       ansible.builtin.git:
         repo: https://github.com/BakirovaAsia/Homework7.git
