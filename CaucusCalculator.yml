@@ -34,7 +34,7 @@
           - "{{ DockerHub_pass }}"
 
     - name: Ensure Docker image is build
-      community.docker.docker_image:
+      docker_image:
         build:
           path: /home/admin/Homework7/multistage
         tag: bakirovaasia/CaucusCalculator:latest
@@ -42,7 +42,7 @@
         source: build
 
     - name: Log out of DockerHub
-      community.docker.docker_login:
+      docker_login:
         state: absent
     
 - name: Pull and deploy app
@@ -51,12 +51,12 @@
 
   tasks:
     - name: Ensure an image is pull
-      community.docker.docker_image:
+      docker_image:
         name: bakirovaasia/CaucusCalculator:latest
         source: pull
 
     - name: Ensure a container is start
-      community.docker.docker_container:
+      docker_container:
         name: CaucusCalculator
         image: bakirovaasia/CaucusCalculator:latest
         state: started
