@@ -23,7 +23,7 @@
     - name: Ensure Github-repo is clone  
       git:
         repo: https://github.com/BakirovaAsia/Homework7.git
-        dest: /home/admin/
+        dest: /home/admin/Homework7
         clone: yes
 
     - name: Ensure in DockerHub is login
@@ -36,7 +36,7 @@
     - name: Ensure Docker image is build
       community.docker.docker_image:
         build:
-          path: /home/admin/Homework8/multistage
+          path: /home/admin/Homework7/multistage
         tag: bakirovaasia/CaucusCalculator:latest
         push: yes
         source: build
