@@ -27,7 +27,7 @@
         clone: yes
 
     - name: Ensure in DockerHub is login
-      community.docker.docker_login:
+      docker_login:
         username:
           - "{{ DockerHub_user }}"
         password:
