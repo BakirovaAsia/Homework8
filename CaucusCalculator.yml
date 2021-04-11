@@ -12,7 +12,7 @@
         state: present 
 
     - name: Ensure Github-repo is clone  
-      ansible.builtin.git:
+      git:
         repo: https://github.com/BakirovaAsia/Homework7.git
         dest: /home/admin
         clone: yes
