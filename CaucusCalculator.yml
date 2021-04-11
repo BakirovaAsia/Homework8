@@ -30,7 +30,9 @@
       state: absent
     
 - name: Pull and deploy app
+  hosts: prod_host
 
+  tasks:
   - name: Ensure an image is pull
     community.docker.docker_image:
       name: bakirovaasia/CaucusCalculator:latest
