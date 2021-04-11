@@ -4,7 +4,6 @@
   become: yes
   vars_files:
     - vars.yml
-
   tasks:
     - name: Ensure Github-repo is clone  
       ansible.builtin.git:
