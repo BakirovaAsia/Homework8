@@ -6,44 +6,44 @@
     - vars.yml
 
   tasks:
-  - name: Ensure Github-repo is clone  
-    ansible.builtin.git:
-      repo: https://github.com/BakirovaAsia/Homework7.git
-      dest: /home/admin
-      clone: yes
+    - name: Ensure Github-repo is clone  
+      ansible.builtin.git:
+        repo: https://github.com/BakirovaAsia/Homework7.git
+        dest: /home/admin
+        clone: yes
  
-  - name: Ensure in DockerHub is login
-    community.docker.docker_login:
-      username:
-        - "{{ DockerHub_user }}"
-      password:
-        - "{{ DockerHub_pass }}"
+    - name: Ensure in DockerHub is login
+      community.docker.docker_login:
+        username:
+          - "{{ DockerHub_user }}"
+        password:
+          - "{{ DockerHub_pass }}"
 
-  - name: Ensure Docker image is build
-    community.docker.docker_image:
-      build:
-        path: /home/admin/Homework8/multistage
-      tag: bakirovaasia/CaucusCalculator:latest
-      push: yes
-      source: build
+    - name: Ensure Docker image is build
+      community.docker.docker_image:
+        build:
+          path: /home/admin/Homework8/multistage
+        tag: bakirovaasia/CaucusCalculator:latest
+        push: yes
+        source: build
 
-  - name: Log out of DockerHub
-    community.docker.docker_login:
-      state: absent
+    - name: Log out of DockerHub
+      community.docker.docker_login:
+        state: absent
     
 - name: Pull and deploy app
   hosts: prod_host
 
   tasks:
-  - name: Ensure an image is pull
-    community.docker.docker_image:
-      name: bakirovaasia/CaucusCalculator:latest
-      source: pull
+    - name: Ensure an image is pull
+      community.docker.docker_image:
+        name: bakirovaasia/CaucusCalculator:latest
+        source: pull
 
-  - name: Ensure a container is start
-    community.docker.docker_container:
-      name: CaucusCalculator
-      image: bakirovaasia/CaucusCalculator:latest
-      state: started
-      ports:
-        - "8080:8080"
+    - name: Ensure a container is start
+      community.docker.docker_container:
+        name: CaucusCalculator
+        image: bakirovaasia/CaucusCalculator:latest
+        state: started
+        ports:
+          - "8080:8080"
