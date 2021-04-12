@@ -33,7 +33,7 @@
 
     - name: Ensure Docker image is build
       docker_image:
-        name: bakirovaasia/CaucusCalculator
+        name: bakirovaasia/caucuscalculator
         build:
           path: /home/admin/Homework7/multistage
         tag: latest
@@ -51,7 +51,7 @@
   tasks:
     - name: Ensure an image is pull
       docker_image:
-        name: bakirovaasia/CaucusCalculator:latest
+        name: bakirovaasia/caucuscalculator:latest
         source: pull
 
     - name: Ensure a container is start
