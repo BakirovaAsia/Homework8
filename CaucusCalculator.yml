@@ -57,7 +57,7 @@
     - name: Ensure a container is start
       docker_container:
         name: CaucusCalculator
-        image: bakirovaasia/CaucusCalculator:latest
+        image: bakirovaasia/caucuscalculator:latest
         state: started
         ports:
           - "8080:8080"
