@@ -40,9 +40,9 @@
 
     - name: Ensure Docker image is build
       docker_image:
+        name: CaucusCalculator:latest
         build:
           path: /home/admin/Homework7/multistage
-        name: bakirovaasia/CaucusCalculator
         tag: bakirovaasia/CaucusCalculator:latest
         push: yes
 #        source: build
