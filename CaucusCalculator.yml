@@ -3,14 +3,9 @@
   hosts: all
   become: yes
   tasks:
-    - name: Ensure pip is install
-      apt: 
-        name: python-pip
-        state: present
-
     - name: Ensure docker is install
-      pip: 
-        name: docker
+      apt: 
+        name: docker.io
         state: present
 
 - name: Build and push docker image
