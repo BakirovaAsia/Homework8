@@ -3,6 +3,11 @@
   hosts: all
   become: yes
   tasks:
+    - name: Ensure pip is install
+      apt: 
+        name: pip
+        state: present
+
     - name: Ensure docker is install
       pip: 
         name: docker
