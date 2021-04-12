@@ -32,14 +32,14 @@
         clone: yes
 
     - name: Ensure in DockerHub is login
-      docker_login:
+      community.docker.docker_login:
         username:
           - "{{ DockerHub_user }}"
         password:
           - "{{ DockerHub_pass }}"
 
     - name: Ensure Docker image is build
-      docker_image:
+      community.docker.docker_image:
         build:
           path: /home/admin/Homework7/multistage
         tag: bakirovaasia/CaucusCalculator:latest
@@ -47,7 +47,7 @@
         source: build
 
     - name: Log out of DockerHub
-      docker_login:
+      community.docker.docker_login:
         state: absent
     
 - name: Pull and deploy app
@@ -56,12 +56,12 @@
 
   tasks:
     - name: Ensure an image is pull
-      docker_image:
+      community.docker.docker_image:
         name: bakirovaasia/CaucusCalculator:latest
         source: pull
 
     - name: Ensure a container is start
-      docker_container:
+      community.docker.docker_container:
         name: CaucusCalculator
         image: bakirovaasia/CaucusCalculator:latest
         state: started
