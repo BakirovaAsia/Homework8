@@ -31,12 +31,12 @@
         dest: /home/admin/Homework7
         clone: yes
 
-#    - name: Ensure in DockerHub is login
-#      docker_login:
-#        username:
-#          - "{{ DockerHub_user }}"
-#        password:
-#          - "{{ DockerHub_pass }}"
+    - name: Ensure in DockerHub is login
+      docker_login:
+        username:
+          - "{{ DockerHub_user }}"
+        password:
+          - "{{ DockerHub_pass }}"
 
     - name: Ensure Docker image is build
       docker_image:
@@ -45,7 +45,7 @@
           path: /home/admin/Homework7/multistage
         tag: latest
         push: yes
-#        source: build
+        source: build
 
     - name: Log out of DockerHub
       docker_login:
