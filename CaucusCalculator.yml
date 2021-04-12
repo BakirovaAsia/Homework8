@@ -40,12 +40,22 @@
 
     - name: Ensure Docker image is build
       docker_image:
-        name: CaucusCalculator:latest
+        name: bakirovaasia/CaucusCalculator
         build:
           path: /home/admin/Homework7/multistage
-        tag: bakirovaasia/CaucusCalculator:latest
+        tag: latest
         push: yes
 #        source: build
+
+    - name: Build an image and push it to a private repo
+      community.docker.docker_image:
+        build:
+          path: ./sinatra
+        name: registry.ansible.com/chouseknecht/sinatra
+        tag: v1
+        push: yes
+        source: build
+
 
     - name: Log out of DockerHub
       docker_login:
