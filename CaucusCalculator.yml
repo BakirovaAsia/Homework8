@@ -4,8 +4,8 @@
   become: yes
   tasks:
     - name: Ensure docker is install
-      apt: 
-        name: docker-py
+      pip: 
+        name: docker
         state: present
 
 - name: Build and push docker image
