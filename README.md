@@ -3,8 +3,8 @@ Devops-school. Ansible playbook.
 
 
 
-primery
-# nano /etc/ansible/hosts
+primary
+ nano /etc/ansible/hosts
 
 add
 
@@ -18,4 +18,4 @@ add
 ~ sudo apt update
 ~ sudo apt install ansible
 
-# ansible-playbook CaucusCalculator.yml --ask-vault-pass
+ ansible-playbook CaucusCalculator.yml --ask-vault-pass
