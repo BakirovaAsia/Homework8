@@ -45,7 +45,7 @@
         name: bakirovaasia/CaucusCalculator
         tag: bakirovaasia/CaucusCalculator:latest
         push: yes
-        source: build
+#        source: build
 
     - name: Log out of DockerHub
       docker_login:
