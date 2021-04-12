@@ -33,10 +33,8 @@
 
     - name: Ensure in DockerHub is login
       docker_login:
-        username: 
-          - "{{ DockerHub_user }}"
-        password: 
-          - "{{ DockerHub_pass }}"
+        username: "{{ DockerHub_user }}"
+        password: "{{ DockerHub_pass }}"
 
     - name: Ensure Docker image is build
       docker_image:
