@@ -9,10 +9,9 @@ primary
 add
 
 [build_host]
-178.154.213.234
-
+IP
 [prod_host]
-178.154.208.51
+IP
 
 ~ sudo apt-add-repository ppa:ansible/ansible
 ~ sudo apt update
